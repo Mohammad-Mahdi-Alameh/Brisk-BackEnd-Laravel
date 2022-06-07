@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+
 class UserController extends Controller
 {
     public function getAllUsers(){
 
 
-        $users= User::all();
+        $users= user::all();
 
         return response()->json([
-            "status" => "Success",
             "users" => $users
         ], 200);
 
@@ -20,7 +21,7 @@ class UserController extends Controller
 
     public function signUp(Request $request){
 
-        $user = new User;
+        $user = new user;
 
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;

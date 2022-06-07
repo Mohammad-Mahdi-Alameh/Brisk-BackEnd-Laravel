@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Restaurant;
+
 class AdminController extends Controller
 {
     public function addRestaurant(Request $request){
