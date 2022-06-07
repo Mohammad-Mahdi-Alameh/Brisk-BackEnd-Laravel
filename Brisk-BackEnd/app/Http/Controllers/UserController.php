@@ -8,6 +8,7 @@ class UserController extends Controller
 {
     public function getAllUsers(){
 
+
         $users= User::all();
 
         return response()->json([
@@ -20,7 +21,7 @@ class UserController extends Controller
     public function signUp(Request $request){
 
         $user = new User;
-        
+
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->username = $request->username;
@@ -39,6 +40,24 @@ class UserController extends Controller
         ], 200);
 
     }
+
+    // public function login(Request $request){
+
+    //     $user = new User;
+
+    //     $user->username = $request->username;
+    //     $user->password = hash("sha256", $request->password);
+    //     $user->is_admin = "0";
+
+    //     $user->save();
+
+    //     return response()->json([
+    //         "status" => "Success",
+    //     ], 200);
+
+    // }
+
+
 
 
 }
