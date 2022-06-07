@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Restaurant;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -29,4 +30,16 @@ class AdminController extends Controller
         ], 200);
 
     }
+
+    public function getAllUsers(){
+
+
+        $users= user::all();
+
+        return response()->json([
+            "users" => $users
+        ], 200);
+
+    }
+    
 }

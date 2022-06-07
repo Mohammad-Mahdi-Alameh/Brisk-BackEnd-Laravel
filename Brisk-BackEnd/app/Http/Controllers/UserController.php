@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Restaurant;
 
 class UserController extends Controller
 {
-    public function getAllUsers(){
+    
+
+    public function getAllRestaurants(){
 
 
-        $users= user::all();
+        $retaurants= restaurant::all();
 
         return response()->json([
-            "users" => $users
+            "retaurant" => $retaurants
         ], 200);
 
     }
