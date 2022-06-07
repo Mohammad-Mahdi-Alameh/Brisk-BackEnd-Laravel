@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Restaurant;
 use App\Models\User;
+use App\Models\Review;
 
 class AdminController extends Controller
 {
@@ -33,11 +34,20 @@ class AdminController extends Controller
 
     public function getAllUsers(){
 
-
         $users= user::all();
 
         return response()->json([
             "users" => $users
+        ], 200);
+
+    }   
+    
+    public function getAllReviews(){
+
+        $reviews= review::all();
+
+        return response()->json([
+            "reviews" => $reviews
         ], 200);
 
     }

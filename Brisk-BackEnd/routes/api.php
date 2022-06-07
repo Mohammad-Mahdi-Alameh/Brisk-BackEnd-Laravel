@@ -11,4 +11,5 @@ Route::get('/users',[AdminController::class, 'getAllUsers'])->name("getAllUsers"
 Route::post('/signup',[UserController::class, 'signUp'])->name("signUp");
 Route::post('/add_restaurant',[AdminController::class, 'addRestaurant'])->name("addRestaurant");
 Route::get('/restaurants',[UserController::class, 'getAllRestaurants'])->name("getAllRestaurants");
+Route::get('/reviews',[AdminController::class, 'getAllReviews'])->name("getAllReviews");
 
