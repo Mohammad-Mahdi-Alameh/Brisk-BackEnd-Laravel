@@ -13,5 +13,7 @@ Route::post('/add_restaurant',[AdminController::class, 'addRestaurant'])->name("
 Route::get('/restaurants',[UserController::class, 'getAllRestaurants'])->name("getAllRestaurants");
 Route::get('/reviews',[AdminController::class, 'getAllReviews'])->name("getAllReviews");
 Route::post('/login',[UserController::class, 'login'])->name("login");
+Route::post('/add_review',[UserController::class, 'addReview'])->name("addReview");
+Route::post('/approve_review',[AdminController::class, 'approveReview'])->name("approveReview");
 
 

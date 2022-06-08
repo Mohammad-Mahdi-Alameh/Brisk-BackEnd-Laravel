@@ -51,5 +51,19 @@ class AdminController extends Controller
         ], 200);
 
     }
+
+    public function approveReviews(Request $request){
+
+        $review_id = $request->review_id;
+        $review = Review::find($review_id);
+        $review->is_approved=1;
+        $review->update();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+
+
+    }
     
 }

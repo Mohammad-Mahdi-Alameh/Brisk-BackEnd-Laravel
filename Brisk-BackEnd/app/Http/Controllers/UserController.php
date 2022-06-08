@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Restaurant;
+use App\Models\Review;
 
-class UserController extends Controller{
+class UserController extends Controller
+{
     
 
     public function getAllRestaurants($id = null){
@@ -56,7 +58,6 @@ class UserController extends Controller{
 
         
         $user = User :: where("username",$request->username)->first();
-        
         if($user){
         $password = hash("sha256", $request->password);//hashing the entered password by the user
         if($password==$user->password){
@@ -76,6 +77,31 @@ class UserController extends Controller{
         ], 200);
 
     }
+
+
+    public function addReview(Request $request){
+
+        $review = new Review;
+
+        $review->review_text = $request->review_text;
+        $review->rating_value = $request->rating_value;
+        $review->is_approved = 0;
+        $review->users_id =  $request->users_id;
+        $review->restaurants_restaurant_id = $request->restaurants_restaurant_id;
+
+       
+
+        $review->save();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+
+    }
+
+
+
+
 }
 
 
