@@ -11,20 +11,28 @@ class UserController extends Controller
 {
     
 
-    public function getAllRestaurants(){
+    public function getAllRestaurants($id = null){
 
+        if($id){
+            $restaurants=Restaurant::find($id);
+            $restaurants=$restaurants ? $restaurants->trade_name : '';
+        }else{
 
-        $retaurants= restaurant::all();
+            $restaurants= restaurant::all();
+
+        }
+        // $restaurants=$restaurants->trade_name;
 
         return response()->json([
-            "retaurant" => $retaurants
+            "restaurants" => $restaurants,
+            // "names" => $m,
         ], 200);
 
     }
 
     public function signUp(Request $request){
 
-        $user = new user;
+        $user = new User;
 
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
@@ -45,21 +53,27 @@ class UserController extends Controller
 
     }
 
-    // public function login(Request $request){
+    public function login(Request $request){
 
-    //     $user = new User;
+        
+        $user = User :: where("username",$request->username)->first();
+        $password = hash("sha256", $request->password);//hashing the entered password by the user
+        if($password==$user->password){
 
-    //     $user->username = $request->username;
-    //     $user->password = hash("sha256", $request->password);
-    //     $user->is_admin = "0";
+            return response()->json([
+                "status" => "Welcome!",
+                "id" => $user -> user_id,
+                "is_admin" => $user->is_admin
+                
+            ], 200);
 
-    //     $user->save();
+        }
 
-    //     return response()->json([
-    //         "status" => "Success",
-    //     ], 200);
+        return response()->json([
+            "status" => "Wrong Username or Password !",
+        ], 200);
 
-    // }
+    }
 
 
 
