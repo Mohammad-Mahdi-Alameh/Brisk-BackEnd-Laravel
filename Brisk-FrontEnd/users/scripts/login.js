@@ -15,8 +15,15 @@ login.addEventListener("click", function(event){
 
     data.append('password', password);
 
-    
+    let url = 'http://127.0.0.1:8000/api/login';
 
+    fetch(url,{
+
+            method:'POST',
+
+            body: data,
+        })
+        
     .then(function (response) {
    
         let result = response.data;
