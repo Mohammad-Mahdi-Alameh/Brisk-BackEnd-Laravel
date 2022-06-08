@@ -32,24 +32,32 @@ class AdminController extends Controller
 
     }
 
-    public function getAllUsers(){
+    public function Users($id = null){
 
-        $users= user::all();
-
+        if($id){
+            $reviews=Review::find($id);
+           
+        }else{
+            $users= user::all();
+        }
         return response()->json([
             "users" => $users
         ], 200);
 
     }   
     
-    public function getAllReviews(){
+    public function Reviews($id = null){
 
+        if($id){
+            $reviews=Review::find($id);
+           
+        }else{
         $reviews= review::all();
-
+        }
         return response()->json([
             "reviews" => $reviews
         ], 200);
-
+    
     }
 
     public function approveReviews(Request $request){

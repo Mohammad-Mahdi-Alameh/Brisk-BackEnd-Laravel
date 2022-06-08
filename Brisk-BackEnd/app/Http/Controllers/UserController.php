@@ -12,11 +12,11 @@ class UserController extends Controller
 {
     
 
-    public function getAllRestaurants($id = null){
+    public function Restaurants($id = null){
 
         if($id){
             $restaurants=Restaurant::find($id);
-            $restaurants=$restaurants ? $restaurants->trade_name : '';
+            // $restaurants=$restaurants ? $restaurants->trade_name : '';
         }else{
 
             $restaurants= restaurant::all();
@@ -96,6 +96,25 @@ class UserController extends Controller
         return response()->json([
             "status" => "Success",
         ], 200);
+
+    }
+
+    public function editProfile(Request $request){
+
+        $user = new User;
+
+        $user_id = $request->user_id;
+        $user = User::find($user_id);
+        $user->username = $request->username;
+        $user->password = hash("sha256", $request->password);
+        $user->phone = $request->phone;
+        
+        $user->update();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+
 
     }
 
