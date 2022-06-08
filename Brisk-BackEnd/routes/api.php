@@ -16,5 +16,6 @@ Route::get('/restaurants',[UserController::class, 'Restaurants'])->name("Restaur
 Route::post('/login',[UserController::class, 'login'])->name("login");
 Route::post('/add_review',[UserController::class, 'addReview'])->name("addReview");
 Route::post('/edit_profile',[UserController::class, 'editProfile'])->name("editProfile");
+Route::post('/approved_reviews',[UserController::class, 'getApprovedReviews'])->name("getApprovedReviews");
 
 

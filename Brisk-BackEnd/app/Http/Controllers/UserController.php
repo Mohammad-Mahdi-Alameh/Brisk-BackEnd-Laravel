@@ -118,6 +118,18 @@ class UserController extends Controller
 
     }
 
+    public function getApprovedReviews(Request $request){
+
+        $restaurant_id=$request->restaurants_restaurant_id;
+        $matchThese = ["restaurants_restaurant_id" => $restaurant_id , "is_approved" => 1];
+        $reviews = Review::where($matchThese)->get();
+
+        return response()->json([
+            "status" => "reviews",
+        ], 200);
+
+    }
+
 
 
 
