@@ -1,0 +1,40 @@
+<html lang="en-US">
+  <head>
+  <title>Upload Restaurant</title>
+  <link rel="stylesheet" href="../styles/add-rest.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="../assets/briskey-2.png">
+</head>
+<body>
+
+<h2 >Add Restaurant</h2>
+<form class="card">
+  <img src="../assets/upload-2.png" class="image">
+  <div class="middle">
+    <div class="text"><button>Upload picture</button></div>
+  </div>
+  <input placeholder="Enter Restaurant's name" id="trade_name"></input>
+  <input placeholder="Enter the dining room capacity" id="dining_room_capacity"></input>
+  <input placeholder="Is the drive thru available?(yes/no)" id="drivethrough_availability"></input>
+  <input placeholder="Is the delivery available?(yes/no)" id="delivery_availability"></input>
+  <input  placeholder="Is the reservation available?(yes/no)" id="reservation_availability"></input>
+  <input placeholder="Enter the working hours" id="working_hours"></input>
+  <input placeholder="Supports all diets?(yes/no)" id="support_all_diets"></input>
+  <input placeholder="Enter your address" id="address"></input>
+  <input placeholder="Enter the phone number" id="phone"></input>
+  <div class="second">
+    <h2>Meet us on social media <br>to know more</h2>
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div>
+  <p><button id="add">Submit</button></p>
+</form>
+
+<script src="../scripts/add_restaurants.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html
