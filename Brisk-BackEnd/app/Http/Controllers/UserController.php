@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Restaurant;
 
-class UserController extends Controller
-{
+class UserController extends Controller{
     
 
     public function getAllRestaurants($id = null){
@@ -57,6 +56,8 @@ class UserController extends Controller
 
         
         $user = User :: where("username",$request->username)->first();
+        
+        if($user){
         $password = hash("sha256", $request->password);//hashing the entered password by the user
         if($password==$user->password){
 
@@ -67,6 +68,7 @@ class UserController extends Controller
                 
             ], 200);
 
+            }
         }
 
         return response()->json([
@@ -74,8 +76,9 @@ class UserController extends Controller
         ], 200);
 
     }
-
-
-
-
 }
+
+
+
+
+
